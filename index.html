@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Country App</title>
+  <link href="style.css" rel="stylesheet">
+  <script src='app.js'></script>
+</head>
+
+<body>
+<header>
+   <div class="nav">
+     <h3>Where in the world?</h3>
+   </div>
+   <div onclick="darkMode()">
+  <p><span class="moon">&#9790; Dark Mode</span> </p>
+   </div>
+ </header>
+ <br><br><br><br>
+ <div class="button">
+   <div>
+ <input type="search" placeholder="Search for a Country..." onkeyup="ReturnSearch()" class="search">
+ </div>
+ <div onclick="showFilter()" class="filter">
+   Filter by Region
+ </div>
+ </div>
+ <div class="list">
+   <p class="listchd">All</p>
+   <p class="listchd">Asia</p>
+   <p class="listchd">Africa</p>
+   <p class="listchd">Antarctic</p>
+   <p class="listchd">Antartic Ocean</p>
+   <p class="listchd">America</p>
+   <p class="listchd">Europe</p>
+   <p class="listchd">Oceania</p>
+   <p class="listchd">Polar</p>
+ </div>
+ <div id="parent" class="md-6"></div>
+ <h3 id="loading"></h3>
+<div id="parent2">
+
+</div>
+</body>
+<script>
+  function darkMode(){
+    var body=document.body;
+body.classList.toggle("change");
+    var theme;
+    if(body.classList.contains("change")){
+      theme="DARK";
+      document.querySelector(".moon").innerHTML="&#9788; Light Mode"
+    }
+  else{
+  theme="LIGHT";  
+document.querySelector(".moon").innerHTML="&#9790; Dark Mode"
+  }
+localStorage.setItem("page-theme", JSON.stringify(theme));
+}
+var gettheme=JSON.parse(localStorage.getItem("page-theme"));
+console.log("gettheme");
+if(gettheme==="DARK"){
+document.body.classList="change";
+document.querySelector(".moon").innerHTML="&#9788; Light Mode";
+}
+
+
+</script>
+</html>
